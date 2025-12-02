@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>THIỆP MỜI THÔI NÔI - Bé Đỗ Anh Duy</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #e5f6ff, #f3fbff);
+  font-family: "Quicksand", sans-serif;
+  color: #2b567a;
+}
+
+/* ---- KHUNG THIỆP ---- */
+/* Thu nhỏ khung thiệp để không chiếm quá nhiều chiều cao */
+/* Thu nhỏ khung thiệp để không chiếm quá nhiều chiều cao */
+.invite-card {
+  width: 75%;
+  max-width: 850px;
+  margin: 20px auto;       /* GIẢM TỪ 40px → 20px */
+  padding: 25px 40px;      /* GIẢM PADDING TỪ 40px → 25px */
+  border-radius: 25px;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 10px 40px rgba(0,90,130,0.15);
+  backdrop-filter: blur(18px) saturate(150%);
+}
+
+/* Giảm khoảng cách từng phần trong khung */
+.title-main {
+  margin: 0 0 5px;
+}
+
+.sub-text {
+  margin-bottom: 10px;
+}
+
+.baby-name {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.birthday {
+  margin-bottom: 15px;
+}
+
+.line {
+  margin: 10px auto 20px;
+}
+
+.main-content {
+  margin-bottom: 20px;
+}
+
+/* Thu nhỏ khoảng cách giữa khung thời gian & địa điểm */
+.info-box-container {
+  margin-bottom: 20px;
+}
+
+/* Thu nhỏ khoảng cách countdown */
+.countdown {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.with-love {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.footer-sign {
+  margin-top: 20px;
+}
+
+
+/* Góc trang trí */
+.corner-left,
+.corner-right {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: #d7effc;
+  border-radius: 50%;
+  opacity: 0.45;
+}
+
+.corner-left {
+  top: -40px;
+  left: -40px;
+}
+
+.corner-right {
+  bottom: -40px;
+  right: -40px;
+}
+
+/* ---- TITLE ---- */
+.top-badge {
+  background: #d7effc;
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #2b567a;
+}
+
+/* Căn giữa toàn bộ phần title */
+.title-block {
+  text-align: center;
+}
+
+/* Tiêu đề thiệp */
+.title-main {
+  font-family: 'Pacifico', cursive;
+  font-size: 42px;
+  font-weight: 400;
+  color: #ff7e9d;
+  text-align: center;
+  margin: 0 0 15px;
+  background: linear-gradient(90deg, #ff7e9d, #ff9eb8);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+
+/* Dòng phụ */
+.sub-text {
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-align: center !important;
+}
+
+/* Tên bé */
+.baby-name {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1da3d8;
+  margin-top: 5px;
+  text-align: center !important;
+}
+
+/* Ngày sinh */
+.birthday {
+  font-size: 15px;
+  margin-bottom: 25px;
+  text-align: center !important;
+}
+
+
+.line {
+  width: 130px;
+  height: 3px;
+  background: #8fd3f4;
+  margin: 10px auto 30px;
+  border-radius: 5px;
+}
+
+/* ---- NỘI DUNG ---- */
+.main-content {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* ---- HAI KHUNG THỜI GIAN & ĐỊA ĐIỂM ---- */
+.info-box-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.info-box {
+  flex: 1;
+  border: 2px dashed #a6d9f2;
+  padding: 18px;
+  border-radius: 15px;
+  background: #f3fbff;
+}
+
+.info-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.place-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1d7fc2;
+}
+
+/* ---- ĐOẠN ĐẾM NGÀY ---- */
+.countdown {
+  text-align: center;
+  color: #007ac3;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* ---- KÍNH MỜI ---- */
+.with-love {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.footer-sign {
+  text-align: right;
+  font-size: 16px;
+  margin-top: 35px;
+  font-weight: 600;
+}
+
+/* ---- HÀNG ẢNH (6 + 6) ---- */
+.month-row {
+  width: 100%;
+  margin: 30px auto 0;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}
+
+.photo-box {
+  text-align: center;
+  position: relative;
+}
+
+.photo-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 25px rgba(100, 180, 220, 0.35);
+  border: 3px solid #e3f6ff;
+}
+
+.photo-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #1d7fc2;
+  font-weight: 600;
+}
+
+/* Tooltip hover ngang */
+.photo-box:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  background: #e7f6ff;
+  border: 1px solid #d2ecff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-20px);
+  font-size: 13px;
+  color: #2b567a;
+  width: 160px;
+  left: 50%;
+  margin-left: -80px;
+  z-index: 20;
+}
+.photo-circle:hover {
+  transform: scale(1.08) rotate(2deg);
+  transition: 0.25s ease;
+}
+
+
+/* ------------------ BALLOON FLOATING ------------------ */
+.balloon {
+  position: fixed;
+  bottom: -150px;
+  width: 40px;
+  height: 55px;
+  background: radial-gradient(circle at 50% 35%, #c4e8ff, #82cfff);
+  border-radius: 50% 50% 45% 45%;
+  animation: floatUp 12s ease-in infinite;
+  z-index: 0;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 40px;
+  background: #7fb7e6;
+  left: 50%;
+  top: 55px;
+}
+
+.b1 { left: 12%; animation-delay: 0s; }
+.b2 { left: 55%; animation-delay: 3s; }
+.b3 { left: 78%; animation-delay: 6s; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-120vh) scale(1.1); opacity: 0; }
+}
+/* ANIMATION PASTEL BACKGROUND */
+body {
+  background: linear-gradient(120deg, #dff5ff, #e9f9ff, #d9f0ff);
+  background-size: 300% 300%;
+  animation: pastelMove 12s ease-in-out infinite;
+}
+
+/* CHUYỂN ĐỘNG MÀU PASTEL */
+@keyframes pastelMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.ribbon {
+  width: 100%;
+  height: 35px;
+  background: linear-gradient(90deg, #c6e7ff, #dff5ff, #c6e7ff);
+  border-radius: 0 0 40px 40px;
+  margin-bottom: 10px;
+}
+.star {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  opacity: 0.7;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 
+                     68% 57%, 79% 91%, 50% 70%, 
+                     21% 91%, 32% 57%, 2% 35%, 
+                     39% 35%);
+  animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.3; transform: scale(0.9); }
+}
+
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+.with-love {
+  animation: none !important;
+  position: static !important;
+  overflow: visible !important;
+  font-size: 16px;
+}
+
+.with-love::after {
+  display: none !important;
+}
+
+
+@keyframes shine {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(180%); }
+}
+
+#music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.7);
+  padding: 10px 18px;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  font-size: 14px;
+}
+.cloud-footer {
+  width: 100%;
+  height: 80px;
+  background: url('https://i.imgur.com/6nVq1Pz.png') repeat-x;
+  background-size: contain;
+  margin-top: -20px;
+}
+.top-badge {
+  animation: floatBadge 3s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+.invite-card {
+  animation: fadeIn 1.2s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.time-line {
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-top: 10px;
+  color: #2c74a6; /* xanh baby đậm nhẹ */
+  font-weight: 500;
+}
+.box-title {
+  text-align: center;
+}
+.box-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1d7fc2; /* xanh baby đậm nhẹ */
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.place-name {
+  text-align: center;
+}
+.place-name {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1d7fc2;
+  letter-spacing: 1px;
+}
+.countdown {
+  text-align: center;
+  color: #007ac3;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  position: relative;
+  overflow: hidden;
+  animation: pulse 3s infinite;
+}
+
+.countdown::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+  animation: shine 2.5s infinite;
+}
+@keyframes softBounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+.countdown {
+  animation: pulse 3s infinite, softBounce 2.5s infinite ease;
+}
+
+.gallery-btn {
+    margin-top: 10px;
+    padding: 10px 22px;
+    border-radius: 25px;
+    background: #87c9ff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(100, 180, 255, 0.4);
+    transition: 0.25s;
+}
+
+.gallery-btn:hover {
+    background: #68b4f0;
+    transform: translateY(-2px);
+}
+
+/* POPUP */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.gallery-content {
+    background: #ffffff;
+    width: 85%;
+    max-width: 900px;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 0.4s ease;
+    overflow-y: auto; /* CHỈ KHUNG NÀY CUỘN */
+}
+
+/* nút đóng cố định */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    z-index: 10000;
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    color: #cfe8ff;
+}
+
+.gallery-content h3 {
+    text-align: center;
+    color: #2196f3;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    float: right;
+    font-size: 32px;
+    cursor: pointer;
+    color: #999;
+}
+
+.close-btn:hover {
+    color: #555;
+}
+
+/* GRID ẢNH */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: 0.25s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.07);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+.gallery-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.gallery-btn {
+    font-family: "Quicksand", sans-serif;
+}
+/* ALBUM TỰ CUỘN CHẬM */
+.gallery-content {
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<audio id="bgm" autoplay loop muted>
+  <source src="music/happy-birthday-254480.mp3" type="audio/mpeg">
+</audio>
+
+<div id="music-btn">🔈 Bật nhạc</div>
+
+
+
+<!-- ==== HÀNG ẢNH TRÊN ==== -->
+<div class="month-row">
+  <div class="photo-box" data-tip="Bé yêu ngoan ngoãn, ngủ ngon và hay mỉm cười.">
+  <img class="photo-circle" src="img/1.jpg">
+    <div class="photo-text"></div>
+</div>
+  <div class="photo-box" data-tip="Bắt đầu nhận diện ba mẹ, siêu đáng yêu.">
+    <img src="img/2.jpg" class="photo-circle">
+    <div class="photo-text"></div>
+  </div>
+
+  <div class="photo-box" data-tip="Biết hóng chuyện và cười toe toét.">
+    <img src="img/3.jpg" class="photo-circle">
+    <div class="photo-text"></div>
+  </div>
+
+  <div class="photo-box" data-tip="Lật người nhanh hơn tia chớp luôn!">
+    <img src="img/4.jpg" class="photo-circle">
+    <div class="photo-text"></div>
+  </div>
+
+  <div class="photo-box" data-tip="Bé thích khám phá mọi thứ xung quanh.">
+    <img src="img/5.jpg" class="photo-circle">
+    <div class="photo-text"></div>
+  </div>
+
+  <div class="photo-box" data-tip="Siêu dễ thương, biết ê a nói chuyện.">
+    <img src="img/6.jpg" class="photo-circle">
+    <div class="photo-text"></div>
+  </div>
+</div>
+
+<!-- ==== KHUNG THIỆP ==== -->
+<div class="invite-card">
+
+  <div class="corner-left"></div>
+  <div class="corner-right"></div>
+
+  <div class="top-badge">🌿 THÔI NÔI TRÒN 1 TUỔI</div>
+
+  <h2 class="title-main">Thiệp Mời Thôi Nôi</h2>
+  
+  <div class="sub-text">Thân mời Anh/Chị đến chung vui cùng gia đình</div>
+
+  <div class="baby-name">Bé Đỗ Anh Duy</div>
+  <div class="birthday">Sinh ngày: <b>08/01/2025</b></div>
+
+  <div class="line"></div>
+
+  <div class="main-content">
+    Nhân dịp bé tròn <b>1 tuổi</b>, gia đình rất hân hạnh được đón tiếp Anh/Chị đến dự buổi tiệc nhỏ, cùng chung vui và gửi lời chúc tốt đẹp cho bé.  
+    Sự hiện diện của Anh/Chị là niềm vinh hạnh cho gia đình.
+  </div>
+
+  <!-- Bảng thông tin -->
+  <div class="info-box-container">
+
+    <div class="info-box">
+      <div class="box-title">THỜI GIAN</div>
+      <div class="time-line">
+  <div>⏰ 11 giờ 00 phút</div>
+  <div>📅 Chủ nhật, ngày 28 • tháng 12 • năm 2025</div>
+</div>
+
+    </div>
+
+    <div class="info-box">
+      <div class="box-title">📍 ĐỊA ĐIỂM</div>
+      <div class="place-name">NHÀ CÔ BẮC</div>
+    </div>
+
+  </div>
+
+  <!-- Countdown -->
+  <div class="countdown" id="countText"></div>
+  <div class="with-love">(Rất mong Anh/Chị sắp xếp thời gian đến tham dự cùng gia đình chúng tôi)</div>
+
+  <div class="with-love">With Love 🧸 ⭐ 🎂 💙</div>
+  <div class="gallery-btn-wrapper">
+     <button class="gallery-btn" onclick="openGallery()">📸 Ảnh Bé Nấm</button>
+      </div>
+<!-- POPUP GALLERY -->
+<div id="galleryModal" class="gallery-modal">
+  <span class="close-btn" onclick="closeGallery()">&times;</span>
+    <div class="gallery-content">
+        <div class="gallery-grid auto-scroll">
+            <img src="img/1.jpg">
+            <img src="img/2.jpg">
+            <img src="img/3.jpg">
+            <img src="img/4.jpg">
+            <img src="img/5.jpg">
+            <img src="img/6.jpg">
+            <img src="img/7.jpg">
+            <img src="img/8.jpg">
+            <img src="img/9.jpg">
+            <img src="img/10.jpg">
+            <img src="img/11.jpg">
+            <img src="img/12.jpg">
+            <img src="img/13.jpg">
+            <!-- Bạn muốn thêm bao nhiêu ảnh cũng được -->
+        </div>
+    </div>
+</div>
+  <div class="footer-sign">Trân trọng,<br><b>Gia đình bé NẤM</b></div>
+
+</div>
+
+
+<!-- COUNTDOWN SCRIPT -->
+<script>
+const eventDate = new Date("2025-12-28");
+const today = new Date();
+
+const diff = Math.ceil((eventDate - today) / (1000 * 60 * 60 * 24));
+
+document.getElementById("countText").textContent =
+  "Còn " + diff + " ngày nữa buổi tiệc sẽ diễn ra.";
+ 
+document.getElementById("music-btn").addEventListener("click", () => {
+  const audio = document.getElementById("bgm");
+  audio.muted = false;
+  audio.play();
+});
+
+document.addEventListener("touchstart", unmuteAudio, { once: true });
+document.addEventListener("click", unmuteAudio, { once: true });
+
+function unmuteAudio() {
+  const audio = document.getElementById("bgm");
+  audio.muted = false;
+  audio.play();
+}
+let scrollInterval;
+
+function openGallery() {
+    const modal = document.getElementById("galleryModal");
+    modal.style.display = "flex";
+
+    const container = document.querySelector(".gallery-content"); // <-- đúng đối tượng cần cuộn
+
+    container.scrollTop = 0;
+    clearInterval(scrollInterval);
+
+    let speed = 1.2; // tốc độ cuộn
+
+    scrollInterval = setInterval(() => {
+        container.scrollTop += speed;
+
+        // Nếu chạm đáy → quay lại đầu
+        if (container.scrollTop + container.clientHeight >= container.scrollHeight - 5) {
+            container.scrollTop = 0;
+        }
+    }, 40);
+}
+
+function closeGallery() {
+    document.getElementById("galleryModal").style.display = "none";
+    clearInterval(scrollInterval);
+}
+
+let titleText = " 🎉 THIỆP MỜI THÔI NÔI - Bé Đỗ Anh Duy 🎂 ";
+let speed = 250; // giảm số này để chạy nhanh hơn
+
+function scrollTitle() {
+    titleText = titleText.substring(1) + titleText.charAt(0);
+    document.title = titleText;
+    setTimeout(scrollTitle, speed);
+}
+
+scrollTitle();
+</script>
+<!-- Bóng bay bay lên -->
+<div class="balloon b1"></div>
+<div class="balloon b2"></div>
+<div class="balloon b3"></div>
+
+</body>
+</html>
