@@ -690,22 +690,8 @@ body {
 <div id="galleryModal" class="gallery-modal">
   <span class="close-btn" onclick="closeGallery()">&times;</span>
     <div class="gallery-content">
-        <div class="gallery-grid auto-scroll">
-            <img src="img/1.jpg">
-            <img src="img/2.jpg">
-            <img src="img/3.jpg">
-            <img src="img/4.jpg">
-            <img src="img/5.jpg">
-            <img src="img/6.jpg">
-            <img src="img/7.jpg">
-            <img src="img/8.jpg">
-            <img src="img/9.jpg">
-            <img src="img/10.jpg">
-            <img src="img/11.jpg">
-            <img src="img/12.jpg">
-            <img src="img/13.jpg">
-            <img src="img/20.jpg">
-            <!-- Bạn muốn thêm bao nhiêu ảnh cũng được -->
+        <div id="galleryGrid" class="gallery-grid auto-scroll">
+            <!-- Ảnh sẽ được load ở đây bởi JavaScript -->
         </div>
     </div>
 </div>
@@ -776,6 +762,32 @@ function scrollTitle() {
 }
 
 scrollTitle();
+  function loadGalleryImages() {
+    const grid = document.getElementById("galleryGrid");
+    grid.innerHTML = "";
+
+    let maxImages = 200; // tối đa 200 hình, muốn tăng bao nhiêu cũng được
+    let count = 1;
+
+    function tryLoadImage(i) {
+        let img = new Image();
+        img.src = `img/${i}.jpg`;
+
+        img.onload = function () {
+            grid.appendChild(img);
+            if (i + 1 <= maxImages) tryLoadImage(i + 1);
+        };
+
+        img.onerror = function () {
+            // Khi ảnh không tồn tại → dừng lại
+            console.log("No more images after:", i - 1);
+        };
+    }
+
+    tryLoadImage(1);
+}
+
+loadGalleryImages();
 </script>
 <!-- Bóng bay bay lên -->
 <div class="balloon b1"></div>
@@ -784,4 +796,5 @@ scrollTitle();
 
 </body>
 </html>
+
 
